@@ -1,5 +1,5 @@
 import { PensamentoService } from './../pensamento.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pensamento } from '../pensamento';
 
@@ -8,7 +8,7 @@ import { Pensamento } from '../pensamento';
   templateUrl: './excluir-pensamento.component.html',
   styleUrls: ['./excluir-pensamento.component.css']
 })
-export class ExcluirPensamentoComponent {
+export class ExcluirPensamentoComponent implements OnInit {
 
   pensamento: Pensamento = {
     id: 0,
@@ -20,7 +20,8 @@ export class ExcluirPensamentoComponent {
   constructor(
     private service: PensamentoService,
     private router: Router,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id')
@@ -37,7 +38,7 @@ export class ExcluirPensamentoComponent {
     }
   }
 
-  cancelarPensamento() {
+  cancelar() {
     this.router.navigate(['/listarPensamento'])
   }
 

@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class PensamentoService {
 
-
   private readonly API = "http://localhost:3000/pensamentos"
 
   constructor(private http: HttpClient) { }
@@ -24,6 +23,7 @@ export class PensamentoService {
   editar(pensamento: Pensamento): Observable<Pensamento> {
     const url = `${this.API}/${pensamento.id}`
     return this.http.put<Pensamento>(url, pensamento)
+
   }
 
   excluir(id: number): Observable<Pensamento> {

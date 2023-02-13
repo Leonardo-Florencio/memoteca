@@ -1,6 +1,6 @@
 import { Pensamento } from './../pensamento';
 import { Component, OnInit } from '@angular/core';
-import { PensamentoService } from '../pensamento.service';
+import { PensamentoService } from './../pensamento.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,7 +18,8 @@ export class CriarPensamentoComponent implements OnInit {
 
   constructor(
     private service: PensamentoService,
-    private router: Router) { }
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
 
@@ -30,7 +31,7 @@ export class CriarPensamentoComponent implements OnInit {
     });
   }
 
-  cancelarPensamento() {
+  cancelar() {
     this.router.navigate(["/listarPensamento"])
   }
 
